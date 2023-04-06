@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson import json_util
-from Movie.movie import Movie
+from app.src.Movie.movie import Movie
 
 app = FastAPI()
 

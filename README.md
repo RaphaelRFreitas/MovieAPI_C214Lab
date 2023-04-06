@@ -11,7 +11,7 @@ pip install fastapi pymongo uvicorn
 To start the API server, run the following command in the terminal:
 
 ```bash
-uvicorn movies_api:app --reload
+uvicorn app.src.movies_api:app --reload
 ```
 This will start the API server on port 8000.
 
