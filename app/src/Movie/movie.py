@@ -4,3 +4,4 @@ class Movie(BaseModel):
     title: str
     director: str
     year: int
+    genre: str

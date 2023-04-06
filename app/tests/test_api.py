@@ -7,7 +7,8 @@ def test_create_movie():
     movie = {
         "title": "The Godfather",
         "director": "Francis Ford Coppola",
-        "year": 1972
+        "year": 1972,
+        "genre": "Crime"
     }
     response = client.post("/movies", json=movie)
     assert response.status_code == 200

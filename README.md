@@ -25,13 +25,14 @@ To create a new movie, make a POST request to the **/movies** endpoint with the 
 {
     "title": "The Godfather",
     "director": "Francis Ford Coppola",
-    "year": 1972
+    "year": 1972,
+    "genre": "Crime"
 }
 ```
 For example, using curl:
 
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"title": "The Godfather", "director": "Francis Ford Coppola", "year": 1972}' http://localhost:8000/movies
+curl -X POST -H "Content-Type: application/json" -d '{"title": "The Godfather", "director": "Francis Ford Coppola", "year": 1972, "genre": "Crime}' http://localhost:8000/movies
 ```
 ## Reading a movie
 To read information about a specific movie, make a GET request to the **/movies/{movie_id}** endpoint, where **{movie_id}** is the ID of the movie you want to query.
@@ -47,7 +48,7 @@ To update information about a movie, make a PUT request to the **/movies/{movie_
 For example, using curl:
 
 ```bash
-curl -X PUT -H "Content-Type: application/json" -d '{"title": "The Godfather Part II", "director": "Francis Ford Coppola", "year": 1974}' http://localhost:8000/movies/6167f2e74f5db4222c7985e5
+curl -X PUT -H "Content-Type: application/json" -d '{"title": "The Godfather Part II", "director": "Francis Ford Coppola", "year": 1974, "genre": "Action"}' http://localhost:8000/movies/6167f2e74f5db4222c7985e5
 ```
 ## Deleting a movie
 To delete a movie, make a DELETE request to the /movies/{movie_id} endpoint, where {movie_id} is the ID of the movie you want to delete.
