@@ -3,6 +3,7 @@ from pymongo import MongoClient
 from bson.objectid import ObjectId
 from bson import json_util
 from app.src.Movie.movie import Movie
+import json
 
 app = FastAPI()
 
@@ -20,7 +21,7 @@ async def create_movie(movie: Movie):
 @app.get("/movies/")
 async def read_movies():
     movies = collection.find()
-    return json_util.dumps(movies)
+    return json.loads(json_util.dumps(movies))
 
 # Retorna um filme específico pelo ID
 @app.get("/movies/{movie_id}")
@@ -28,7 +29,7 @@ async def read_movie(movie_id: str):
     movie = collection.find_one({"_id": ObjectId(movie_id)})
     if movie is None:
         raise HTTPException(status_code=404, detail="Movie not found")
-    return json_util.dumps(movie)
+    return json.loads(json_util.dumps(movie))
 
 # Atualiza um filme específico pelo ID
 @app.put("/movies/{movie_id}")
