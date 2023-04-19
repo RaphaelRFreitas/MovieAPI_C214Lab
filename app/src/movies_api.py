@@ -31,6 +31,14 @@ async def read_movie(movie_id: str):
         raise HTTPException(status_code=404, detail="Movie not found")
     return json.loads(json_util.dumps(movie))
 
+# Retorna um filme específico pelo título
+@app.get("/movies/title/{movie_title}")
+async def read_movie(movie_title: str):
+    movie = collection.find_one({"title": movie_title})
+    if movie is None:
+        raise HTTPException(status_code=404, detail="Movie not found")
+    return json.loads(json_util.dumps(movie))
+
 # Atualiza um filme específico pelo ID
 @app.put("/movies/{movie_id}")
 async def update_movie(movie_id: str, movie: Movie):
