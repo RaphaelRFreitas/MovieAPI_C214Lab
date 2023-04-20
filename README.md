@@ -17,9 +17,9 @@ This will start the API server on port 8000.
 
 ## Testing the API
 You can test the API using a tool like Postman or by using the command line with the curl utility. Here are some examples of how to test each CRUD operation:
-'''bash
+```bash
 pytest
-'''
+```
 
 ## Conclusion
 With these basic instructions, you should be ready to start using the movies API. Remember that you can customize the API and add additional features, such as user authentication and input validation, as needed.
