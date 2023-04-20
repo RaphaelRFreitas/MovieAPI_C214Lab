@@ -39,10 +39,10 @@ async def read_movie(movie_title: str):
         raise HTTPException(status_code=404, detail="Movie not found")
     return json.loads(json_util.dumps(movie))
 
-# Atualiza um filme específico pelo ID
-@app.put("/movies/{movie_id}")
-async def update_movie(movie_id: str, movie: Movie):
-    result = collection.update_one({"_id": ObjectId(movie_id)}, {"$set": movie.dict()})
+# Atualiza um filme específico pelo titulo
+@app.put("/movies/{movie_title}")
+async def update_movie(movie_title: str, movie: Movie):
+    result = collection.update_one({"title": movie_title}, {"$set": movie.dict()})
     if result.modified_count == 0:
         raise HTTPException(status_code=404, detail="Movie not found")
     return {"message": "Movie updated successfully"}
@@ -54,3 +54,19 @@ async def delete_movie(movie_id: str):
     if result.deleted_count == 0:
         raise HTTPException(status_code=404, detail="Movie not found")
     return {"message": "Movie deleted successfully"}
+
+# Deleta um filme específico pelo titulo
+@app.delete("/movies/title/{movie_title}")
+async def delete_movie(movie_title: str):
+    result = collection.delete_one({"title": movie_title})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Movie not found")
+    return {"message": "Movie deleted successfully"}
+
+# Deleta todos os filmes
+@app.delete("/movies/")
+async def delete_movies():
+    result = collection.delete_many({})
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Movies not found")
+    return {"message": "Movies deleted successfully"}
