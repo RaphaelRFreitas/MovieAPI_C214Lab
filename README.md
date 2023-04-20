@@ -16,7 +16,7 @@ uvicorn app.src.movies_api:app --reload
 This will start the API server on port 8000.
 
 ## Testing the API
-You can test the API using a tool like Postman or by using the command line with the curl utility. Here are some examples of how to test each CRUD operation:
+You can test the API using a tool like Postman or by using the command line with the pytest utility.
 ```bash
 pytest
 ```
