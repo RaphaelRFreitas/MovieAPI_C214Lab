@@ -5,7 +5,7 @@ This is a simple movies API built using FastAPI and MongoDB. The API allows you 
 To install the necessary dependencies, run the following command in the terminal:
 
 ```bash
-pip install fastapi pymongo uvicorn
+pip install requirements.txt
 ```
 ## Running the API
 To start the API server, run the following command in the terminal:
